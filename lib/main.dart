@@ -14,12 +14,28 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-      create: (context) => ConsumerProvider(),
+    //for multiple provider
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(
+          create: (context) => ConsumerProvider(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => UpperCaseProvider(),
+        ),
+      ],
       child: const MaterialApp(
         home: ConsumerProviderView(),
       ),
     );
+
+    //this is for the single prvider
+    /* ChangeNotifierProvider(
+        create: (context) => ConsumerProvider(),
+        child: const MaterialApp(
+          home: ConsumerProviderView(),
+        ),
+      );*/
   }
 }
 
