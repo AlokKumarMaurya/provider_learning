@@ -8,7 +8,7 @@ class ConsumerProviderView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final provider=Provider.of<ConsumerProvider>(context);
+    final provider=Provider.of<ConsumerProvider>(context,listen: false);
 
     return Scaffold(
       body: Column(
