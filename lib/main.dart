@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:provider_learning/provider/counter_provider.dart';
 import 'package:provider_learning/provider/upperCaseProvider.dart';
+import 'package:provider_learning/usingConsumer/consumerProvider.dart';
+import 'package:provider_learning/usingConsumer/view.dart';
 
 void main() {
   runApp(const MyApp());
@@ -13,9 +15,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
-      create: (context) => UpperCaseProvider(),
+      create: (context) => ConsumerProvider(),
       child: const MaterialApp(
-        home: CaseChanger(),
+        home: ConsumerProviderView(),
       ),
     );
   }
