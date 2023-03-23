@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:provider_learning/provider/counter_provider.dart';
+import 'package:provider_learning/provider/learn.dart';
+import 'package:provider_learning/provider/theme_changer.dart';
 import 'package:provider_learning/provider/upperCaseProvider.dart';
 import 'package:provider_learning/usingConsumer/consumerProvider.dart';
-import 'package:provider_learning/usingConsumer/view.dart';
 
 void main() {
   runApp(const MyApp());
@@ -23,9 +24,22 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(
           create: (context) => UpperCaseProvider(),
         ),
+        ChangeNotifierProvider(
+          create: (context) => LearnProvider(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => ThemeChangerProvider(),
+        )
       ],
-      child: const MaterialApp(
-        home: ConsumerProviderView(),
+      child: Builder(
+        builder: (context) {
+          final ThemeChangerProvider themeChangerProvider=Provider.of<ThemeChangerProvider>(context);
+          return  MaterialApp(
+            darkTheme: ThemeData.dark(),
+            themeMode: themeChangerProvider.themeMode,
+            home: const LearnView(),
+          );
+        }
       ),
     );
 
