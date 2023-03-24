@@ -4,6 +4,7 @@ import 'package:provider_learning/provider/counter_provider.dart';
 import 'package:provider_learning/provider/learn.dart';
 import 'package:provider_learning/provider/theme_changer.dart';
 import 'package:provider_learning/provider/upperCaseProvider.dart';
+import 'package:provider_learning/provider/valueNotifier.dart';
 import 'package:provider_learning/usingConsumer/consumerProvider.dart';
 
 void main() {
@@ -37,7 +38,7 @@ class MyApp extends StatelessWidget {
           return  MaterialApp(
             darkTheme: ThemeData.dark(),
             themeMode: themeChangerProvider.themeMode,
-            home: const LearnView(),
+            home:  ValueNotifierView(),
           );
         }
       ),
